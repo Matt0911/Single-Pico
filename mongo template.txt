@@ -1,0 +1,11 @@
+db.userlist.insert({'username' : 'matt0911','email' : 'mattmanhardt@gmail.com','fullname' : 'Matt Manhardt','fsToken' : ''})
+
+
+db.messages.insert({"MessageID":"62825da4-e1dc-11e5-b86d-9a79f06e9478:1","Originator":"Node 4 ","Text":"Howdy!","EndPoint":"http://ec2-52-33-69-188.us-west-2.compute.amazonaws.com/message/5"})
+
+db.peers.insert({'url': 'http://ec2-52-33-69-188.us-west-2.compute.amazonaws.com/message/5'})
+
+http://ec2-52-33-0-24.us-west-2.compute.amazonaws.com/message/2
+http://ec2-52-34-196-137.us-west-2.compute.amazonaws.com/message/3
+http://ec2-52-33-115-219.us-west-2.compute.amazonaws.com/message/4
+http://ec2-52-33-69-188.us-west-2.compute.amazonaws.com/message/5
