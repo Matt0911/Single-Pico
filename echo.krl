@@ -2,7 +2,7 @@ ruleset echo {
   meta {
     name "Echo"
     description <<
-A first ruleset for the Quickstart
+Part 1 Echo
 >>
     author "Matt Manhardt"
     logging on
