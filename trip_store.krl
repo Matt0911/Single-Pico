@@ -6,10 +6,10 @@ Part 3 Store Trips
 >>
     author "Matt Manhardt"
     logging on
-    sharing on
-    //provides trips
-    //provides long_trips
-    //provides short_trips
+    //sharing on
+    provides trips
+    provides long_trips
+    provides short_trips
   }
 
   global {
