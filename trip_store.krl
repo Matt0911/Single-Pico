@@ -23,7 +23,7 @@ Part 3 Store Trips
     long_trips = function() {
       longtrips = ent:longTrips;
       times = longtrips.keys();
-      output = times.map(function(x) {x + " " + longtrips{x}});
+      output = times.map(function(x) {x + ", " + longtrips{[x]}} + " miles");
       output
     };
 
@@ -33,7 +33,7 @@ Part 3 Store Trips
       longtimes = longtrips.keys();
       trips = trips.delete(longtimes);
       times = trips.keys();
-      output = times.map(function(x) {x + " " + trips{x}});
+      output = times.map(function(x) {x + ", " + trips{[x]}} + " miles");
       output
     };
   }
