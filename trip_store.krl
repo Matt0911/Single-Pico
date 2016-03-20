@@ -47,7 +47,7 @@ Part 3 Store Trips
     }
     fired {
       log ("LOG Collect trip with: " + mileage);
-      log ("DEBUG ent:trips = ");
+      log ("DEBUG ent:trips = " + ent:trips);
       set ent:trips init if not ent:trips{["_0"]};
       set ent:trips{time} mileage;
     }
