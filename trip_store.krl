@@ -16,7 +16,7 @@ Part 3 Store Trips
     trips = function() {
       trips = ent:trips;
       times = trips.keys();
-      output = times.map(function(x) {x + " " + trips{[x]}});
+      output = times.map(function(x) {x + ", " + trips{[x]}} + " miles");
       output
     };
 
