@@ -19,16 +19,8 @@ Part 1 Echo
   }
   rule hello {
     select when echo hello
-    pre{
-      name = event:attr("name").klog("our passed in Name: ");
-    }
-    {
-      send_directive("say") with
-        something = "Hello World";
-    }
-    always {
-      log ("LOG says Hello " + name);
-    }
+    send_directive("say") with
+      something = "Hello World";
   }
 
   rule message {
