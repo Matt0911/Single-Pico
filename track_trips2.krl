@@ -1,6 +1,6 @@
 ruleset track_trips2 {
   meta {
-    name "Track Trips"
+    name "Track Trips 2"
     description <<
 Part 2 Track Trips
 >>
