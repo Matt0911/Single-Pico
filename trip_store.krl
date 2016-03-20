@@ -18,7 +18,7 @@ Part 3 Store Trips
       //times = trips.keys();
       //output = times.map(function(x) {x + " " + trips{x}});
       output = "stil testing"
-      output
+      trips
     };
 
     long_trips = function() {
