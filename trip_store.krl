@@ -15,10 +15,9 @@ Part 3 Store Trips
   global {
     trips = function() {
       trips = ent:trips;
-      //times = trips.keys();
+      times = trips.keys();
       //output = times.map(function(x) {x + " " + trips{x}});
-      output = "stil testing"
-      trips
+      times
     };
 
     long_trips = function() {
