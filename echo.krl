@@ -1,6 +1,6 @@
 ruleset echo {
   meta {
-    name ""
+    name "Echo"
     description <<
 A first ruleset for the Quickstart
 >>
@@ -8,7 +8,7 @@ A first ruleset for the Quickstart
     logging on
     sharing on
     provides hello
- 
+    provides message
   }
   global {
     hello = function(obj) {
