@@ -7,9 +7,9 @@ Part 3 Store Trips
     author "Matt Manhardt"
     logging on
     sharing on
-    provides collect_trips
-    provides collect_long_trips
-    provides clear_trips
+    provides trips
+    provides long_trips
+    provides short_trips
   }
 
   global {
