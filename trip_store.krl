@@ -15,7 +15,9 @@ Part 3 Store Trips
   global {
     trips = function() {
       trips = ent:trips;
-      trips
+      times = trips.keys();
+      output = times.map(function(x) {x + " " + trips{[x]}});
+      times
     };
 
     long_trips = function() {
