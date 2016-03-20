@@ -16,14 +16,14 @@ Part 3 Store Trips
     trips = function() {
       trips = ent:trips;
       times = trips.keys();
-      output = times.map(function(x) {x + ", " + trips{[x]}} + " miles");
+      output = times.map(function(x) {x + ", " + trips{[x]} + " miles"});
       output
     };
 
     long_trips = function() {
       longtrips = ent:longTrips;
       times = longtrips.keys();
-      output = times.map(function(x) {x + ", " + longtrips{[x]}} + " miles");
+      output = times.map(function(x) {x + ", " + longtrips{[x]} + " miles"});
       output
     };
 
@@ -33,7 +33,7 @@ Part 3 Store Trips
       longtimes = longtrips.keys();
       trips = trips.delete(longtimes);
       times = trips.keys();
-      output = times.map(function(x) {x + ", " + trips{[x]}} + " miles");
+      output = times.map(function(x) {x + ", " + trips{[x]} + " miles"});
       output
     };
   }
