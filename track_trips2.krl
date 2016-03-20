@@ -19,7 +19,8 @@ Part 2 Track Trips
     fired {
       log ("LOG raise trip_processed event");
       raise explicit event 'trip_processed'
-        attributes event:attrs();
+        with attributes = event:attrs()
+        and time = time:now();
     }
   }
 
@@ -27,9 +28,10 @@ Part 2 Track Trips
     select when explicit trip_processed
     pre{
       mileage = event:attr("mileage");
+      time = event:attr("time");
     }
     fired {
-      log ("LOG Trip was processed: " + event:attrs());
+      log ("LOG Trip was processed: " + mileage + "," + time);
       raise explicit event 'found_long_trip'
         if (mileage > long_trip);
     }
