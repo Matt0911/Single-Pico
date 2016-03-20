@@ -70,7 +70,7 @@ Part 3 Store Trips
 
   rule clear_trips {
     select when car trip_reset
-    fired {
+    always {
       log("LOG Clear all trips");
       clear ent:trips;
       clear ent:longTrips;
