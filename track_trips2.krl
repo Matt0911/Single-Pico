@@ -19,7 +19,7 @@ Part 2 Track Trips
     fired {
       log ("LOG raise trip_processed event");
       raise explicit event 'trip_processed'
-        with attributes = event:attrs()
+        with mileage = event:attr("mileage")
         and time = time:now();
     }
   }
@@ -27,7 +27,7 @@ Part 2 Track Trips
   rule find_long_trips {
     select when explicit trip_processed
     pre{
-      mileage = event:attr("attributes","mileage");
+      mileage = event:attr("mileage");
       time = event:attr("time");
     }
     fired {
