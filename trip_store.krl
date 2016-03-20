@@ -14,7 +14,10 @@ Part 3 Store Trips
 
   global {
     trips = function() {
-      output = "This is a test";
+      trips = ent:trips;
+      //times = trips.keys();
+      //output = times.map(function(x) {x + " " + trips{x}});
+      output = "stil testing"
       output
     };
 
