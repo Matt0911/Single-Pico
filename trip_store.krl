@@ -13,18 +13,41 @@ Part 3 Store Trips
   }
 
   global {
-    
+    trips = function() {
+      trips = ent:trips;
+      times = trips.keys();
+      output = times.map(function(x) {x + " " + trips{x}});
+      output
+    };
+
+    long_trips = function() {
+      longtrips = ent:longTrips;
+      times = longtrips.keys();
+      output = times.map(function(x) {x + " " + longtrips{x}});
+      output
+    };
+
+    short_trips = function() {
+      trips = ent:trips;
+      longtrips = ent:longTrips;
+      longtimes = longtrips.keys();
+      trips = trips.delete(longtimes);
+      times = trips.keys();
+      output = times.map(function(x) {x + " " + trips{x}});
+      output
+    };
   }
 
   rule colect_trips {
     select when explicit trip_processed
     pre{
       mileage = event:attr("mileage");
+      time = event:attr("time");
     }
     fired {
       log ("LOG Collect trip with: " + mileage);
       set ent:trips init if not ent:trips{["_0"]};
-      set ent:trips{time:now()} mileage;
+      set ent:trips{time} mileage;
     }
   }
 
@@ -32,6 +55,7 @@ Part 3 Store Trips
     select when explicit found_long_trip
     pre{
       mileage = event:attr("mileage");
+      time = event:attr("time");
     }
     fired {
       log ("LOG Collect Long Trip: " + mileage);
