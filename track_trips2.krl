@@ -29,7 +29,7 @@ Part 2 Track Trips
       mileage = event:attr("mileage");
     }
     fired {
-      log ("LOG Trip was processed" + mileage);
+      log ("LOG Trip was processed: " + event:attrs());
       raise explicit event 'found_long_trip'
         if (mileage > long_trip);
     }
