@@ -49,7 +49,7 @@ Part 3 Store Trips
       log ("LOG Collect trip with: " + mileage);
       
       //set ent:trips init if not ent:trips{["_0"]};
-      set ent:trips{time} mileage;
+      set ent:trips{[time]} mileage;
       log ("DEBUG ent:trips = " + ent:trips);
     }
   }
