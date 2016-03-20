@@ -47,6 +47,7 @@ Part 3 Store Trips
     }
     fired {
       log ("LOG Collect trip with: " + mileage);
+      log ("DEBUG ent:trips = " ent:trips);
       set ent:trips init if not ent:trips{["_0"]};
       set ent:trips{time} mileage;
     }
@@ -60,6 +61,7 @@ Part 3 Store Trips
     }
     fired {
       log ("LOG Collect Long Trip: " + mileage);
+      log ("DEBUG ent:longTrips = " ent:longTrips);
       set ent:longTrips init if not ent:longTrips{["_0"]};
       set ent:longTrips{time:now()} mileage;
     }
