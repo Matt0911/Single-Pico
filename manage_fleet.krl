@@ -24,12 +24,12 @@ Fleet manager Part 1
     //}
   //}
 
-  rule createChildren{
-    select when pico_based create_child
+  rule create_vehicle {
+    select when car new_vehicle
     pre{
       attributes = {}
-                              .put(["Prototype_rids"],"") // semicolon separated rulesets the child needs installed at creation
-                              .put(["name"],"Test Child") // name for child
+                              .put(["Prototype_rids"],"b507742x3.prod") // semicolon separated rulesets the child needs installed at creation
+                              .put(["name"],"Test Vehicle") // name for child
                               ;
     }
     {
