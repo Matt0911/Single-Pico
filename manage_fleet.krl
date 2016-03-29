@@ -1,4 +1,4 @@
-ruleset manage_fleer {
+ruleset manage_fleet {
   meta {
     name "Manage Fleet"
     description <<
