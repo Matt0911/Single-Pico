@@ -40,6 +40,31 @@ Part 2 Track Trips
     }
   }
 
+  rule delete_vehicle {
+    select when car unneeded_vehicle
+    pre {
+      name = event:attr("name");
+      results = wranglerOS:name();
+      picoName = results{"picoName"};
+
+      subs = wranglerOS:subscriptions();
+      subscriptions = subs{"subscriptions"};
+      subscribed = subscriptions{"subscribed"};
+      sub = subscribed[0];
+      info = sub{["Tutorial_Subscriptions:unintermixed"]};
+      subname = info{["subscription_name"]};
+    }
+    fired {
+      raise wrangler 'subscription_cancellation'
+        with channel_name = subname
+        if (name == picoName);
+      //raise wrangler 'child_deletion'
+        //with deletionTarget = meta:eci()
+        //if (name == picoName);
+    }
+
+  }
+
   rule childToParent {
     select when wrangler init_events
     pre {
