@@ -22,7 +22,7 @@ Fleet manager Part 1
       sub = subscribed[0];
       info = sub{["Tutorial_Subscriptions:unintermixed"]};
       name = info{"subscription_name"};
-      name
+      info
     };
 
     children = function() {
