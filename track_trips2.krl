@@ -9,6 +9,7 @@ Part 2 Track Trips
     sharing on
     provides process_trip
     use module  b507199x5 alias wrangler_api
+    use module  b507199x5 alias wranglerOS
   }
 
   global {
