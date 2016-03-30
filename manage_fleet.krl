@@ -21,7 +21,7 @@ Fleet manager Part 1
       subed = subscriptions{"subscribed"};
       sub = subed[0];
       keyset = sub.keys();
-      info = sub[keyset[0]];
+      info = sub{keyset[0]};
       info
     };
 
