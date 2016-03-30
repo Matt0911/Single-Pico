@@ -53,12 +53,12 @@ Part 2 Track Trips
       subscriptions = subs{"subscriptions"};
       subscribed = subscriptions{"subscribed"};
       sub = subscribed[0];
-      info = sub{["Tutorial_Subscriptions:unintermixed"]};
-      subname = info{["subscription_name"]};
+      //info = sub{["Tutorial_Subscriptions:unintermixed"]};
+      //subname = info{["subscription_name"]};
       //log ("attr: " + name + ", pico: " + picoName + ", sub: " + subname);
     }
     fired {
-      log("CANCEL SUBSCRIPTION");
+      log("CANCEL SUBSCRIPTION: " + sub);
       raise wrangler event 'subscription_cancellation'
         with channel_name = subname
         if (name == picoName);
