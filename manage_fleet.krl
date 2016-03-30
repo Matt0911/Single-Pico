@@ -20,7 +20,8 @@ Fleet manager Part 1
       subscriptions = results{"subscriptions"};
       subed = subscriptions{"subscribed"};
       sub = subed[0];
-      sub
+      info = sub{"Tutorial_Subscriptions:unintermixed"};
+      info
     };
 
     children = function() {
