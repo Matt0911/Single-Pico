@@ -57,12 +57,12 @@ Part 2 Track Trips
       //log ("attr: " + name + ", pico: " + picoName + ", sub: " + subname);
     }
     fired {
-      raise wrangler event 'subscription_cancellation'
-        with channel_name = subname
-        if (name == picoName);
-      //raise wrangler 'child_deletion'
-        //with deletionTarget = meta:eci()
+      //raise wrangler event 'subscription_cancellation'
+        //with channel_name = subname
         //if (name == picoName);
+      raise wrangler 'child_deletion'
+        with deletionTarget = meta:eci()
+        if (name == picoName);
     }
 
   }
