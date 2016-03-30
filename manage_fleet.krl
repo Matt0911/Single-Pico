@@ -19,9 +19,7 @@ Fleet manager Part 1
       results = wranglerOS:subscriptions();
       subscriptions = results{"subscriptions"};
       subed = subscriptions{"subscribed"};
-      sub = subed[0];
-      keyset = sub.keys();
-      keyset
+      subed
     };
 
     children = function() {
