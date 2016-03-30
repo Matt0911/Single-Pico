@@ -22,7 +22,7 @@ Fleet manager Part 1
     };
 
     children = function() {
-      results = wranglerOS;
+      results = wranglerOS:name();
       results
     }
 
