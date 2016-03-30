@@ -23,8 +23,10 @@ Fleet manager Part 1
 
     children = function() {
       results = wranglerOS:children();
+      results = meta:host();
       results
     }
+
 
   }
 
