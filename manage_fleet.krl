@@ -20,7 +20,7 @@ Fleet manager Part 1
       subscriptions = results{"subscriptions"};
       subed = subscriptions{"subscribed"};
       sub = subed[0];
-      info = sub["Tutorial_Subscriptions:unintermixed"];
+      info = sub.keys();
       info
     };
 
