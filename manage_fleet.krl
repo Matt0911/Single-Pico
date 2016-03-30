@@ -20,7 +20,8 @@ Fleet manager Part 1
       subscriptions = results{"subscriptions"};
       subed = subscriptions{"subscribed"};
       sub = subed[0];
-      info = sub.keys();
+      keyset = sub.keys();
+      info = sub[keyset[0]];
       info
     };
 
