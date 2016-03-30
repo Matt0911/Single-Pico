@@ -53,6 +53,22 @@ Fleet manager Part 1
     }
   }
 
+  rule delete_vehicle {
+    select when car unneeded_vehicle
+    pre {
+      picoName = event:attr("name");
+    }
+    fired {
+      //raise wrangler event 'subscription_cancellation'
+        //with channel_name = subname
+        //if (name == picoName);
+      log("PICO TO BE DELETED: " + name);
+      raise explicit event 'delete_vehicle'
+        with name = picoName;
+    }
+
+  }
+
   rule autoAccept {
     select when wrangler inbound_pending_subscription_added 
     pre{

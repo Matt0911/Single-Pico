@@ -41,7 +41,7 @@ Part 2 Track Trips
   }
 
   rule delete_vehicle {
-    select when car unneeded_vehicle
+    select when explicit delete_vehicle
     pre {
       name = event:attr("name");
       results = wranglerOS:name();
@@ -60,6 +60,7 @@ Part 2 Track Trips
       //raise wrangler event 'subscription_cancellation'
         //with channel_name = subname
         //if (name == picoName);
+      log("DELETION ATTRIBUTES attr: " + name + ", pico: " + picoName + ", sub: " + subname);
       raise wrangler event 'child_deletion'
         with deletionTarget = meta:eci()
         if (name == picoName);
