@@ -58,12 +58,12 @@ Fleet manager Part 1
     pre {
       picoName = event:attr("name");
     }
-    fired {
+    always {
       //raise wrangler event 'subscription_cancellation'
         //with channel_name = subname
         //if (name == picoName);
-      log("PICO TO BE DELETED: " + name);
-      raise explicit event 'delete_vehicle'
+      log("PICO TO BE DELETED: " + picoName);
+      raise car event 'delete_vehicle'
         with name = picoName;
     }
 
