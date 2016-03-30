@@ -7,6 +7,7 @@ Fleet manager Part 1
     author "Matt Manhardt"
     logging on
     sharing on
+    provides vehicles
     use module  b507199x5 alias wranglerOS
   }
 
