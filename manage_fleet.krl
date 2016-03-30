@@ -8,6 +8,7 @@ Fleet manager Part 1
     logging on
     sharing on
     provides vehicles
+    provides children
     use module  b507199x5 alias wranglerOS
   }
 
@@ -19,6 +20,12 @@ Fleet manager Part 1
       subscriptions = results{"subscriptions"};
       subscriptions
     };
+
+    children = function() {
+      results = wranglerOS:children();
+      results
+    }
+
   }
 
   rule create_vehicle {
