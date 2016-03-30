@@ -12,6 +12,12 @@ Fleet manager Part 1
 
   global {
     long_trip = 100;
+
+    vehicles = function() {
+      results = wranglerOS:subscriptions();
+      subscriptions = results{"subscriptions"};
+      subscriptions
+    };
   }
 
   rule create_vehicle {

@@ -48,7 +48,7 @@ Part 2 Track Trips
        parent_results = wrangler_api:parent();
        parent = parent_results{'parent'};
        parent_eci = parent[0]; // eci is the first element in tuple 
-       attrs = {}.put(["name"],"Family")
+       attrs = {}.put(["name"],"Fleet")
                       .put(["name_space"],"Tutorial_Subscriptions")
                       .put(["my_role"],"vehicle")
                       .put(["your_role"],"fleet")
