@@ -48,15 +48,16 @@ Part 2 Track Trips
       picoName = results{"picoName"};
 
       subs = wranglerOS:subscriptions();
-      log("subscriptions: " + subs);
+      //log ("subscriptions: " + subs);
       subscriptions = subs{"subscriptions"};
       subscribed = subscriptions{"subscribed"};
       sub = subscribed[0];
       info = sub{["Tutorial_Subscriptions:unintermixed"]};
       subname = info{["subscription_name"]};
+      //log ("attr: " + name + ", pico: " + picoName + ", sub: " + subname);
     }
     fired {
-      raise wrangler 'subscription_cancellation'
+      raise wrangler event 'subscription_cancellation'
         with channel_name = subname
         if (name == picoName);
       //raise wrangler 'child_deletion'
