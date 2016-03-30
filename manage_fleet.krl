@@ -20,8 +20,7 @@ Fleet manager Part 1
       subscriptions = results{"subscriptions"};
       subed = subscriptions{"subscribed"};
       sub = subed[0];
-      name = sub{"subscription_name"};
-      name
+      sub
     };
 
     children = function() {
