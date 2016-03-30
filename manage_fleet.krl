@@ -21,7 +21,7 @@ Fleet manager Part 1
       subscribed = subscriptions{"subscribed"};
       sub = subscribed[0];
       info = sub{["Tutorial_Subscriptions:unintermixed"]};
-      name = "hi";//info{["subscription_name"]};
+      name = info{["subscription_name"]};
       name
     };
 
