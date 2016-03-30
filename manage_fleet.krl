@@ -63,7 +63,7 @@ Fleet manager Part 1
         //with channel_name = subname
         //if (name == picoName);
       log("PICO TO BE DELETED: " + picoName);
-      raise explicit event 'delete_vehicle' for b507742x3
+      raise explicit event 'delete_vehicle' for b507742x3.prod
         with name = picoName;
     }
 
