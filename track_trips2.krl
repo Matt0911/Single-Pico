@@ -48,6 +48,7 @@ Part 2 Track Trips
       picoName = results{"picoName"};
 
       subs = wranglerOS:subscriptions();
+      log("subscriptions: " + subs);
       subscriptions = subs{"subscriptions"};
       subscribed = subscriptions{"subscribed"};
       sub = subscribed[0];
