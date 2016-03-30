@@ -18,7 +18,10 @@ Fleet manager Part 1
     vehicles = function() {
       results = wranglerOS:subscriptions();
       subscriptions = results{"subscriptions"};
-      subscriptions
+      subed = subscriptions{"subscribed"};
+      sub = subed[0];
+      name = sub{"subscription_name"};
+      name
     };
 
     children = function() {
