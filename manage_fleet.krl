@@ -22,8 +22,9 @@ Fleet manager Part 1
     };
 
     children = function() {
-      results = wranglerOS:name(){"picoName"};
-      results
+      results = wranglerOS:name();
+      name = results{"picoName"};
+      name
     }
 
   }
