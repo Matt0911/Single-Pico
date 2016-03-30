@@ -60,7 +60,7 @@ Part 2 Track Trips
       //raise wrangler event 'subscription_cancellation'
         //with channel_name = subname
         //if (name == picoName);
-      raise wrangler 'child_deletion'
+      raise wrangler event 'child_deletion'
         with deletionTarget = meta:eci()
         if (name == picoName);
     }
