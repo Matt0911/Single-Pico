@@ -41,7 +41,7 @@ Part 2 Track Trips
   }
 
   rule delete_vehicle {
-    select when car delete_vehicle
+    select when explicit delete_vehicle
     pre {
       name = event:attr("name");
       results = wranglerOS:name();
