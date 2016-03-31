@@ -28,7 +28,8 @@ Fleet manager Part 1
     children = function() {
       results = wranglerOS:children();
       childrenArray = results{["children"]};
-      ent:children
+      i = ent:children{["Jeep"]};
+      childrenArray[i]
     }
 
   }
