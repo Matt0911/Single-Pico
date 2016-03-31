@@ -56,7 +56,7 @@ Fleet manager Part 1
   rule delete_vehicle {
     select when car unneeded_vehicle
     pre {
-      picoName = event:attr("name");
+      deleteECI = event:attr("eci");
     }
     always {
       //raise wrangler event 'subscription_cancellation'
@@ -64,7 +64,7 @@ Fleet manager Part 1
         //if (name == picoName);
       log("PICO TO BE DELETED: " + picoName);
       raise explicit event 'delete_vehicle' for b507742x3
-        with name = picoName;
+        with eci = deleteECI;
     }
 
   }
