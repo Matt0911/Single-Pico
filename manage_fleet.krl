@@ -29,7 +29,7 @@ Fleet manager Part 1
       results = wranglerOS:children();
       childrenArray = results{["children"]};
       i = ent:children{["Jeep"]};
-      childrenArray[i]
+      i
     }
 
   }
