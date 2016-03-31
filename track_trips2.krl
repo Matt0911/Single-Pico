@@ -55,7 +55,7 @@ Part 2 Track Trips
       sub = subscribed[0];
       subKeys = sub.keys();
       info = sub{[subKeys[0]]};
-      subname = info{["subscription_name"]};
+      subname = info{["event_eci"]};
       //log ("attr: " + name + ", pico: " + picoName + ", sub: " + subname);
     }
     fired {
