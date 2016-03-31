@@ -27,8 +27,7 @@ Fleet manager Part 1
 
     children = function() {
       results = wranglerOS:children();
-      name = results{"picoName"};
-      name
+      results
     }
 
   }
