@@ -55,6 +55,7 @@ Fleet manager Part 1
       attributes attr.klog("attributes: ");
       //log("create child for " + child);
       //set ent:children{vehicle_name} i;
+      set ent:numChildren i;
       log ("ENT:CHILDREN: " + i);
     }
   }
