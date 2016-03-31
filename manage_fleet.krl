@@ -28,7 +28,7 @@ Fleet manager Part 1
     children = function() {
       results = wranglerOS:children();
       childrenArray = results{["children"]};
-      childrenArray
+      ent:children
     }
 
   }
@@ -54,7 +54,7 @@ Fleet manager Part 1
       attributes attr.klog("attributes: ");
       //log("create child for " + child);
       set ent:children{vehicle_name} i;
-      log ("ENT:CHILDREN" + ent:children);
+      log ("ENT:CHILDREN: " + ent:children);
     }
   }
 
