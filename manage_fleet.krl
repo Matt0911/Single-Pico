@@ -21,8 +21,7 @@ Fleet manager Part 1
       subscribed = subscriptions{"subscribed"};
       sub = subscribed[0];
       info = sub{["Tutorial_Subscriptions:unintermixed"]};
-      subname = info{["subscription_name"]};
-      subname
+      info
     };
 
     children = function() {
