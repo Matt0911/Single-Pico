@@ -40,7 +40,7 @@ Fleet manager Part 1
       vehicle_name = event:attr("name");
       results = wranglerOS:children();
       childrenArray = results{["children"]};
-      i = childrenArray.length();
+      i = ent:numChildren + 1;
       attr = {}
                               .put(["Prototype_rids"],"b507742x3.prod") // ; separated rulesets the child needs installed at creation
                               .put(["name"],vehicle_name) // name for child_name
@@ -54,8 +54,8 @@ Fleet manager Part 1
       raise wrangler event "child_creation"
       attributes attr.klog("attributes: ");
       //log("create child for " + child);
-      set ent:children{vehicle_name} i;
-      log ("ENT:CHILDREN: " + ent:children);
+      //set ent:children{vehicle_name} i;
+      log ("ENT:CHILDREN: " + i);
     }
   }
 
