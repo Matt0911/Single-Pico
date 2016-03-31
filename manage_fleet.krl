@@ -27,7 +27,8 @@ Fleet manager Part 1
 
     children = function() {
       results = wranglerOS:children();
-      results
+      childrenArray = results{["children"]};
+      childrenArray
     }
 
   }
@@ -48,7 +49,7 @@ Fleet manager Part 1
     always{
       raise wrangler event "child_creation"
       attributes attr.klog("attributes: ");
-      log("create child for " + child);
+      //log("create child for " + child);
     }
   }
 
@@ -58,9 +59,6 @@ Fleet manager Part 1
       deleteECI = event:attr("eci");
     }
     always {
-      //raise wrangler event 'subscription_cancellation'
-        //with channel_name = subname
-        //if (name == picoName);
       log("PICO TO BE DELETED: " + picoName);
       raise explicit event 'delete_vehicle' for b507742x3
         with eci = deleteECI;
