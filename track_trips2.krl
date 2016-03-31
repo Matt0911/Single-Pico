@@ -44,7 +44,7 @@ Part 2 Track Trips
   rule delete_vehicle {
     select when explicit delete_vehicle
     pre {
-      name = event:attr("name");
+      eci = event:attr("eci");
       results = wranglerOS:name();
       picoName = results{"picoName"};
 
@@ -63,10 +63,9 @@ Part 2 Track Trips
       raise wrangler event 'subscription_cancellation'
         with channel_name = subname
         if (name == picoName);
-      log("DELETION ATTRIBUTES attr: " + name + ", pico: " + picoName + ", sub: " + subname);
-      //raise wrangler event 'child_deletion'
-        //with deletionTarget = meta:eci()
-        //if (name == picoName);
+      log("DELETION ATTRIBUTES attr: " + eci + ", pico: " + picoName + ", sub: " + subname);
+      raise wrangler event 'child_deletion'
+        with deletionTarget = eci;
     }
 
   }
