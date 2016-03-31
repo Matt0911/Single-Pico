@@ -58,7 +58,7 @@ Part 2 Track Trips
       //log ("attr: " + name + ", pico: " + picoName + ", sub: " + subname);
     }
     fired {
-      log("CANCEL SUB: " + info);
+      log("CANCEL SUB: " + info[0]);
       raise wrangler event 'subscription_cancellation'
         with channel_name = subname
         if (name == picoName);
