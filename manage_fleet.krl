@@ -28,8 +28,8 @@ Fleet manager Part 1
     children = function() {
       results = wranglerOS:children();
       childrenArray = results{["children"]};
-      i = ent:children{"Jeep"};
-      childrenArray
+      i = ent:numChildren;
+      childrenArray[i]
     }
 
   }
@@ -65,9 +65,12 @@ Fleet manager Part 1
     select when car unneeded_vehicle
     pre {
       deleteECI = event:attr("eci");
+      i = ent:numChildren;
+      i = i -1;
     }
     always {
       log("PICO TO BE DELETED: " + picoName);
+      set ent:numChildren i;
       raise explicit event 'delete_vehicle' for b507742x3
         with eci = deleteECI;
     }
