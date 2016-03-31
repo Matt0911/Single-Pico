@@ -55,11 +55,11 @@ Part 2 Track Trips
       sub = subscribed[0];
       subKeys = sub.keys();
       info = sub{[subKeys[0]]};
-      //subname = info{["subscription_name"]};
+      subname = info{["subscription_name"]};
       //log ("attr: " + name + ", pico: " + picoName + ", sub: " + subname);
     }
     fired {
-      log("HASH PLEASE: " + info);
+      log("SUBNAME: " + subname);
       raise wrangler event 'subscription_cancellation'
         with channel_name = subname
         if (name == picoName);
