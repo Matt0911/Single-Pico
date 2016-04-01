@@ -117,6 +117,7 @@ Fleet manager Part 1
       log("DELETED SUBSCRIPTION BACK CHANNEL: " + subname);
       
       clear ent:count;
+      clear ent:children;
       set ent:count newi;
       set ent:children newmap;
       log("DECREMENT COUNTER: " + newi);
