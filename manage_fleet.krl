@@ -24,7 +24,8 @@ Fleet manager Part 1
       sub = subscribed[i];
       subKeys = sub.keys();
       info = sub{[subKeys[0]]};
-      info
+      subname = info{["back_channel"]};
+      subname
     };
 
     children = function() {
@@ -34,7 +35,7 @@ Fleet manager Part 1
       i = i - 1;
       childinfo = childrenArray[i];
       childeci = childinfo[0];
-      childeci
+      ent:children
     }
 
   }
