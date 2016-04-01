@@ -143,10 +143,10 @@ Fleet manager Part 1
       //log ("attr: " + name + ", pico: " + picoName + ", sub: " + subname);
     }
     always {
-      log("SUBNAME: " + subname);
-      raise wrangler event 'subscription_cancellation'
-        with channel_name = subname
-        if (name == picoName);
+      //log("SUBNAME: " + subname);
+      //raise wrangler event 'subscription_cancellation'
+        //with channel_name = subname
+        //if (name == picoName);
       log("DELETION ATTRIBUTES attr: " + eci + ", pico: " + picoName + ", sub: " + subname);
       raise wrangler event 'child_deletion'
         with deletionTarget = eci;
