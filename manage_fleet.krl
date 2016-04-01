@@ -22,7 +22,7 @@ Fleet manager Part 1
       sub = subscribed[0];
       subKeys = sub.keys();
       info = sub{[subKeys[0]]};
-      subscriptions
+      info
     };
 
     children = function() {
@@ -30,7 +30,9 @@ Fleet manager Part 1
       childrenArray = results{["children"]};
       i = ent:numChildren;
       i = i - 1;
-      childrenArray[i]
+      childinfo = childrenArray[i];
+      childeci = childinfo[0];
+      childeci
     }
 
   }
@@ -42,7 +44,7 @@ Fleet manager Part 1
       results = wranglerOS:children();
       childrenArray = results{["children"]};
       i = ent:numChildren;
-      i = i + 1;
+      newi = i + 1;
       attr = {}
                               .put(["Prototype_rids"],"b507742x3.prod") // ; separated rulesets the child needs installed at creation
                               .put(["name"],vehicle_name) // name for child_name
@@ -56,9 +58,12 @@ Fleet manager Part 1
       raise wrangler event "child_creation"
       attributes attr.klog("attributes: ");
       //log("create child for " + child);
-      //set ent:children{vehicle_name} i;
-      set ent:numChildren i;
-      log ("ENT:CHILDREN: " + i);
+      
+      log ("ENT:numCHILDREN: " + i);
+      
+      // SET MAP 
+      set ent:children{vehicle_name} i;
+      set ent:numChildren newi;
     }
   }
 
@@ -77,6 +82,8 @@ Fleet manager Part 1
     }
 
   }
+
+
 
   rule autoAccept {
     select when wrangler inbound_pending_subscription_added 
