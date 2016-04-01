@@ -58,7 +58,7 @@ Fleet manager Part 1
       i = ent:children{name};
       childinfo = childrenArray[i];
       childeci = childinfo[0];
-      childeci
+      name
     }
   }
 
