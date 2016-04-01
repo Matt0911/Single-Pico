@@ -22,7 +22,7 @@ Fleet manager Part 1
       sub = subscribed[0];
       subKeys = sub.keys();
       info = sub{[subKeys[0]]};
-      sub
+      subscriptions
     };
 
     children = function() {
