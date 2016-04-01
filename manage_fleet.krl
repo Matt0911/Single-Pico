@@ -27,7 +27,7 @@ Fleet manager Part 1
       subKeys = sub.keys();
       info = sub{[subKeys[0]]};
       subname = info{["back_channel"]};
-      subname
+      subscribed
     };
 
     children = function() {
@@ -58,7 +58,7 @@ Fleet manager Part 1
       i = ent:children{name};
       childinfo = childrenArray[i];
       childeci = childinfo[0];
-      name
+      childeci
     }
   }
 
@@ -95,22 +95,29 @@ Fleet manager Part 1
   rule delete_vehicle {
     select when car unneeded_vehicle
     pre {
-      picoName = event:attr("name");
+      childname = event:attr("name");
       subname = getSubName(picoName);
-      eci = getChildECI(name);
+      childeci = getChildECI(name);
 
       childmap = ent:children;
       newmap = childmap.delete(name)
       
-
+      i = ent:numChildren;
+      newi = i - 1;
     }
-    always {
-      log("PICO TO BE DELETED: " + picoName);
-      set ent:numChildren i;
-
+    fired {
+      log("PICO TO BE DELETED: " + childname);
+      log("DELETED PICO ECI: " + childeci);
+      log("DELETED SUBSCRIPTION BACK CHANNEL: " + subname);
+      set ent:numChildren newi;
+      set ent:children newmap;
       log("PICO DELETED, NEW numCHILDREN: " + ent:numChildren);
-      raise car event 'delete_vehicle'
-        with eci = deleteECI;
+      
+      raise wrangler event 'subscription_cancellation'
+        with channel_name = subname
+      
+      raise wrangler event 'child_deletion'
+        with deletionTarget = childeci;
     }
 
   }
