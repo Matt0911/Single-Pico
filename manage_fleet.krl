@@ -27,7 +27,7 @@ Fleet manager Part 1
       subKeys = sub.keys();
       info = sub{[subKeys[0]]};
       subname = info{["back_channel"]};
-      subscriptions
+      ent:count
     };
 
     children = function() {
@@ -68,7 +68,7 @@ Fleet manager Part 1
       vehicle_name = event:attr("name");
       results = wranglerOS:children();
       childrenArray = results{["children"]};
-      i = ent:numChildren;
+      i = ent:count;
       newi = i + 1;
       attr = {}
                               .put(["Prototype_rids"],"b507742x3.prod") // ; separated rulesets the child needs installed at creation
@@ -88,7 +88,7 @@ Fleet manager Part 1
       
       // SET MAP 
       set ent:children{vehicle_name} i;
-      set ent:numChildren newi;
+      set ent:count newi;
     }
   }
 
@@ -102,7 +102,7 @@ Fleet manager Part 1
       childmap = ent:children;
       newmap = childmap.delete(name);
       
-      i = ent:numChildren;
+      i = ent:count;
       newi = i - 1;
     }
     always {
@@ -116,11 +116,11 @@ Fleet manager Part 1
       log("DELETED PICO ECI: " + childeci);
       log("DELETED SUBSCRIPTION BACK CHANNEL: " + subname);
       
-      clear ent:numChildren;
-      set ent:numChildren newi;
+      clear ent:count;
+      set ent:count newi;
       set ent:children newmap;
       log("DECREMENT COUNTER: " + newi);
-      log("PICO DELETED, NEW numCHILDREN: " + ent:numChildren);
+      log("PICO DELETED, NEW numCHILDREN: " + ent:count);
     }
   }
 
