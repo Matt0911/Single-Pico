@@ -116,7 +116,7 @@ Fleet manager Part 1
       log("DELETED PICO ECI: " + childeci);
       log("DELETED SUBSCRIPTION BACK CHANNEL: " + subname);
       
-
+      clear ent:numChildren;
       set ent:numChildren newi;
       set ent:children newmap;
       log("DECREMENT COUNTER: " + newi);
