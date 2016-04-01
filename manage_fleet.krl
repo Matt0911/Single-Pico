@@ -120,6 +120,7 @@ Fleet manager Part 1
 
       set ent:numChildren newi;
       set ent:children newmap;
+      log("DECREMENT COUNTER: " + newi);
       log("PICO DELETED, NEW numCHILDREN: " + ent:numChildren);
     }
   }
