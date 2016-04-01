@@ -41,35 +41,6 @@ Part 2 Track Trips
     }
   }
 
-  rule delete_vehicle {
-    select when explicit delete_vehicle
-    pre {
-      eci = event:attr("eci");
-      results = wranglerOS:name();
-      picoName = results{"picoName"};
-
-      subs = wranglerOS:subscriptions();
-      //log ("subscriptions: " + subs);
-      subscriptions = subs{"subscriptions"};
-      subscribed = subscriptions{"subscribed"};
-      sub = subscribed[0];
-      subKeys = sub.keys();
-      info = sub{[subKeys[0]]};
-      subname = info{["back_channel"]};
-      //log ("attr: " + name + ", pico: " + picoName + ", sub: " + subname);
-    }
-    fired {
-      log("SUBNAME: " + subname);
-      raise wrangler event 'subscription_cancellation'
-        with channel_name = subname
-        if (name == picoName);
-      log("DELETION ATTRIBUTES attr: " + eci + ", pico: " + picoName + ", sub: " + subname);
-      raise wrangler event 'child_deletion'
-        with deletionTarget = eci;
-    }
-
-  }
-
   rule childToParent {
     select when wrangler init_events
     pre {

@@ -80,12 +80,40 @@ Fleet manager Part 1
     always {
       log("PICO TO BE DELETED: " + picoName);
       set ent:numChildren i;
-      raise explicit event 'delete_vehicle' for b507742x3
+      raise explicit event 'delete_vehicle'
         with eci = deleteECI;
     }
 
   }
 
+    rule remove_car {
+    select when explicit delete_vehicle
+    pre {
+      eci = event:attr("eci");
+      results = wranglerOS:name();
+      picoName = results{"picoName"};
+
+      subs = wranglerOS:subscriptions();
+      //log ("subscriptions: " + subs);
+      subscriptions = subs{"subscriptions"};
+      subscribed = subscriptions{"subscribed"};
+      sub = subscribed[0];
+      subKeys = sub.keys();
+      info = sub{[subKeys[0]]};
+      subname = info{["back_channel"]};
+      //log ("attr: " + name + ", pico: " + picoName + ", sub: " + subname);
+    }
+    fired {
+      log("SUBNAME: " + subname);
+      raise wrangler event 'subscription_cancellation'
+        with channel_name = subname
+        if (name == picoName);
+      log("DELETION ATTRIBUTES attr: " + eci + ", pico: " + picoName + ", sub: " + subname);
+      raise wrangler event 'child_deletion'
+        with deletionTarget = eci;
+    }
+
+  }
 
 
   rule autoAccept {
