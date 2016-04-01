@@ -11,7 +11,7 @@ Fleet manager Part 1
     provides children
     provides getSubName
     provides getChildECI
-    use module  b507199x5 alias wranglerOS
+    use module b507199x5 alias wranglerOS
   }
 
   global {
@@ -27,7 +27,8 @@ Fleet manager Part 1
       subKeys = sub.keys();
       info = sub{[subKeys[0]]};
       subname = info{["back_channel"]};
-      subscribed
+      name = "Hey there, it flushed"
+      name
     };
 
     children = function() {
@@ -38,7 +39,7 @@ Fleet manager Part 1
       childinfo = childrenArray[i];
       childeci = childinfo[0];
       ent:children
-    }
+    };
 
     getSubName = function(name) {
       results = wranglerOS:subscriptions();
@@ -59,7 +60,7 @@ Fleet manager Part 1
       childinfo = childrenArray[i];
       childeci = childinfo[0];
       childeci
-    }
+    };
   }
 
   rule create_vehicle {
@@ -100,29 +101,30 @@ Fleet manager Part 1
       childeci = getChildECI(name);
 
       childmap = ent:children;
-      newmap = childmap.delete(name)
+      newmap = childmap.delete(name);
       
       i = ent:numChildren;
       newi = i - 1;
     }
-    fired {
-      log("PICO TO BE DELETED: " + childname);
-      log("DELETED PICO ECI: " + childeci);
-      log("DELETED SUBSCRIPTION BACK CHANNEL: " + subname);
-      set ent:numChildren newi;
-      set ent:children newmap;
-      log("PICO DELETED, NEW numCHILDREN: " + ent:numChildren);
-      
+    always {
       raise wrangler event 'subscription_cancellation'
-        with channel_name = subname
+        with channel_name = subname;
       
       raise wrangler event 'child_deletion'
         with deletionTarget = childeci;
-    }
 
+      log("PICO TO BE DELETED: " + childname);
+      log("DELETED PICO ECI: " + childeci);
+      log("DELETED SUBSCRIPTION BACK CHANNEL: " + subname);
+      
+
+      set ent:numChildren newi;
+      set ent:children newmap;
+      log("PICO DELETED, NEW numCHILDREN: " + ent:numChildren);
+    }
   }
 
-    rule remove_car {
+  rule remove_car {
     select when car delete_vehicle
     pre {
       eci = event:attr("eci");
@@ -139,7 +141,7 @@ Fleet manager Part 1
       subname = info{["back_channel"]};
       //log ("attr: " + name + ", pico: " + picoName + ", sub: " + subname);
     }
-    fired {
+    always {
       log("SUBNAME: " + subname);
       raise wrangler event 'subscription_cancellation'
         with channel_name = subname
@@ -148,7 +150,6 @@ Fleet manager Part 1
       raise wrangler event 'child_deletion'
         with deletionTarget = eci;
     }
-
   }
 
 
