@@ -71,7 +71,7 @@ Fleet manager Part 1
       i = ent:count;
       newi = i + 1;
       attr = {}
-                              .put(["Prototype_rids"],"b507742x3.prod") // ; separated rulesets the child needs installed at creation
+                              .put(["Prototype_rids"],"b507742x3.prod;b507742x4.prod") // ; separated rulesets the child needs installed at creation
                               .put(["name"],vehicle_name) // name for child_name
                               .put(["parent_eci"],parent_eci) // eci for child to subscribe
                               ;
