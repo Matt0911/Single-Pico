@@ -9,6 +9,8 @@ Fleet manager Part 1
     sharing on
     provides vehicles
     provides children
+    provides getSubName
+    provides getChildECI
     use module  b507199x5 alias wranglerOS
   }
 
@@ -38,6 +40,26 @@ Fleet manager Part 1
       ent:children
     }
 
+    getSubName = function(name) {
+      results = wranglerOS:subscriptions();
+      subscriptions = results{"subscriptions"};
+      subscribed = subscriptions{"subscribed"};
+      i = ent:children{name};
+      sub = subscribed[i];
+      subKeys = sub.keys();
+      info = sub{[subKeys[0]]};
+      subname = info{["back_channel"]};
+      subname
+    };
+
+    getChildECI = function(name) {
+      results = wranglerOS:children();
+      childrenArray = results{["children"]};
+      i = ent:children{name};
+      childinfo = childrenArray[i];
+      childeci = childinfo[0];
+      childeci
+    }
   }
 
   rule create_vehicle {
@@ -73,21 +95,28 @@ Fleet manager Part 1
   rule delete_vehicle {
     select when car unneeded_vehicle
     pre {
-      deleteECI = event:attr("eci");
-      i = ent:numChildren;
-      i = i -1;
+      picoName = event:attr("name");
+      subname = getSubName(picoName);
+      eci = getChildECI(name);
+
+      childmap = ent:children;
+      newmap = childmap.delete(name)
+      
+
     }
     always {
       log("PICO TO BE DELETED: " + picoName);
       set ent:numChildren i;
-      raise explicit event 'delete_vehicle'
+
+      log("PICO DELETED, NEW numCHILDREN: " + ent:numChildren);
+      raise car event 'delete_vehicle'
         with eci = deleteECI;
     }
 
   }
 
     rule remove_car {
-    select when explicit delete_vehicle
+    select when car delete_vehicle
     pre {
       eci = event:attr("eci");
       results = wranglerOS:name();
