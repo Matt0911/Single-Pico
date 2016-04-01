@@ -19,10 +19,12 @@ Fleet manager Part 1
       results = wranglerOS:subscriptions();
       subscriptions = results{"subscriptions"};
       subscribed = subscriptions{"subscribed"};
-      sub = subscribed[0];
+      i = ent:numChildren;
+      i = i - 1;
+      sub = subscribed[i];
       subKeys = sub.keys();
       info = sub{[subKeys[0]]};
-      subscriptions
+      info
     };
 
     children = function() {
