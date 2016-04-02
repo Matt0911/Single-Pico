@@ -7,7 +7,7 @@ Fleet manager Part 1
     author "Matt Manhardt"
     logging on
     sharing on
-    provides vehicles
+    provides fleetReport
     provides children
     provides getSubName
     provides getChildECI
@@ -17,18 +17,16 @@ Fleet manager Part 1
   global {
     long_trip = 100;
 
-    vehicles = function() {
+    fleetReport = function() {
       results = wranglerOS:subscriptions();
       subscriptions = results{"subscriptions"};
-      //subscribed = subscriptions{"subscribed"};
-      //i = ent:numChildren;
-      //i = i - 1;
-      //sub = subscribed[i];
-      //subKeys = sub.keys();
-      //info = sub{[subKeys[0]]};
-      //subname = info{["back_channel"]};
+      subscribed = subscriptions{"subscribed"};
+      sub = subscribed[i];
+      subKeys = sub.keys();
+      info = sub{[subKeys[0]]};
+      subname = info{["back_channel"]};
       output = http:get("https://cs.kobj.net/sky/cloud/b507742x5.prod/children?_eci=B82C0A0C-F83E-11E5-9213-1F7FE71C24E1");
-      output
+      subscriptions
     };
 
     children = function() {
