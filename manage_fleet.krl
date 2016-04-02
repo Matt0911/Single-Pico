@@ -27,7 +27,8 @@ Fleet manager Part 1
       //subKeys = sub.keys();
       //info = sub{[subKeys[0]]};
       //subname = info{["back_channel"]};
-      subscriptions
+      output = http:get("https://cs.kobj.net/sky/cloud/b507742x5.prod/children?_eci=B82C0A0C-F83E-11E5-9213-1F7FE71C24E1");
+      output
     };
 
     children = function() {
