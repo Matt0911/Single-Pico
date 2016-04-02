@@ -18,8 +18,8 @@ Fleet manager Part 1
     long_trip = 100;
 
     vehicles = function() {
-      //results = wranglerOS:subscriptions();
-      //subscriptions = results{"subscriptions"};
+      results = wranglerOS:subscriptions();
+      subscriptions = results{"subscriptions"};
       //subscribed = subscriptions{"subscribed"};
       //i = ent:numChildren;
       //i = i - 1;
@@ -27,7 +27,7 @@ Fleet manager Part 1
       //subKeys = sub.keys();
       //info = sub{[subKeys[0]]};
       //subname = info{["back_channel"]};
-      ent:count
+      subscriptions
     };
 
     children = function() {
@@ -49,7 +49,7 @@ Fleet manager Part 1
       subKeys = sub.keys();
       info = sub{[subKeys[0]]};
       subname = info{["back_channel"]};
-      subscriptions
+      subname
     };
 
     getChildECI = function(name) {
