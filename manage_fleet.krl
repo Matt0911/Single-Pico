@@ -33,9 +33,10 @@ Fleet manager Part 1
         //newhash = h.put(subname, output{"content"});
         //a.length() > 1 => r(a.tail(), newhash) | newhash;
       //};
-      
-      tripsMap = {subname:output{"content"}};
-      tripsMap
+      val = output{"content"};
+      tripsMap = {};
+      tripsMap = tripsMap.put([subname], val);
+      tripsMapK
     };
 
     children = function() {
