@@ -35,7 +35,7 @@ Fleet manager Part 1
       };
       
       tripsMap = r(subKeys, {}, sub);
-      subKeys
+      tripsMap
     };
 
     children = function() {
