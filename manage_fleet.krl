@@ -23,15 +23,19 @@ Fleet manager Part 1
       subscribed = subscriptions{"subscribed"};
       sub = subscribed[i];
       subKeys = sub.keys();
-      tripsMap = {};
-      //foreach subKeys setting key {
-        info = sub{[subKeys[0]]};
+
+      r = function(subKeys, h, sub) {
+        top = a.head();
+        info = sub{[top]};
         subname = info{["event_eci"]};
         output = http:get("https://cs.kobj.net/sky/cloud/b507742x4.prod/trips", 
                             {"_eci" : subname});
-      //}
+        newhash = h.put(subname, output{"content"});
+        a.length() > 1 => r(a.tail(), newhash) | newhash;
+      };
       
-      output
+      tripsMap = r(subKeys, {}, sub);
+      tripsMap
     };
 
     children = function() {
