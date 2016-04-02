@@ -26,7 +26,7 @@ Fleet manager Part 1
 
       r = function(subKeys, h, sub) {
         top = a.head();
-        info = sub{[top]};
+        info = sub{top};
         subname = info{["event_eci"]};
         output = http:get("https://cs.kobj.net/sky/cloud/b507742x4.prod/trips", 
                             {"_eci" : subname});
