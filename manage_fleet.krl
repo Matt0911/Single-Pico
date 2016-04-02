@@ -36,7 +36,7 @@ Fleet manager Part 1
       val = output{"content"};
       tripsMap = {};
       tripsMap = tripsMap.put([subname], val);
-      tripsMapK
+      tripsMap
     };
 
     children = function() {
