@@ -49,7 +49,7 @@ Fleet manager Part 1
       subKeys = sub.keys();
       info = sub{[subKeys[0]]};
       subname = info{["back_channel"]};
-      subname
+      subscriptions
     };
 
     getChildECI = function(name) {
