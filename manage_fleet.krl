@@ -45,6 +45,7 @@ Fleet manager Part 1
       //i = i - 1;
       //childinfo = childrenArray[i];
       //childeci = childinfo[0];
+      
       ent:children
     };
 
